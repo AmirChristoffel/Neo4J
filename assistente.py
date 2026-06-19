@@ -74,12 +74,12 @@ except Exception:
     pass
 
 st.sidebar.subheader("Conexão Neo4j")
-neo4j_uri = st.sidebar.text_input("URI do Banco", value=default_uri, key="neo4j_uri")
-neo4j_user = st.sidebar.text_input("Usuário", value=default_user, key="neo4j_user")
-neo4j_password = st.sidebar.text_input("Senha", value=default_pass, type="password", key="neo4j_pwd")
+default_uri = "neo4j+ssc://cb84c387.databases.neo4j.io"
+default_user = "cb84c387"
+default_pass = "1xe1FMi49ZrfSzUvfOfzK_j8GKGqqFblHkvsQrQZVjc"
 
 def get_driver():
-    return GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
+    return GraphDatabase.driver(default_uri, auth=(default_user, default_pass))
 
 def run_query(query, parameters=None):
     with get_driver() as driver:
